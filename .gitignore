@@ -6,3 +6,6 @@ db.sqlite3
 .env
 core/static
 core/media
+
+# npm
+node_modules
