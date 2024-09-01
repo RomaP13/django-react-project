@@ -1,15 +1,14 @@
 import { jwtDecode } from "jwt-decode";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import api from "../api";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
-
 
 function ProtectedRoute({ children }) {
   const [isAuthorized, setIsAuthorized] = useState(null);
 
   useEffect(() => {
-    auth().catch(() => setIsAuthorized(false))
+    auth().catch(() => setIsAuthorized(false));
   }, []);
 
   // Refresh the ACCESS_TOKEN
@@ -49,7 +48,7 @@ function ProtectedRoute({ children }) {
     else {
       setIsAuthorized(true);
     }
-  }
+  };
 
   if (isAuthorized === null) {
     return <div>Loading...</div>;
