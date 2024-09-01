@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN } from "../constants";
+import api from "../api";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import "../styles/Form.css";
 
 function Form({ route, method }) {
@@ -16,7 +17,7 @@ function Form({ route, method }) {
     e.preventDefault();
 
     try {
-      const res = api.post(route, { username, password });
+      const res = await api.post(route, { username, password });
       if (method === "login") {
         localStorage.setItem(ACCESS_TOKEN, res.data.access);
         localStorage.setItem(REFRESH_TOKEN, res.data.access);
@@ -34,7 +35,7 @@ function Form({ route, method }) {
 
   return (
     <form onSubmit={handleSubmit} className="form-container">
-      <h1>name</h1>
+      <h1>{name}</h1>
       <input
         className="form-input"
         type="text"
@@ -50,7 +51,7 @@ function Form({ route, method }) {
         placeholder="Password"
       />
       <button className="form-button" tyep="submit">
-        {{ name }}
+        {name}
       </button>
     </form>
   );
