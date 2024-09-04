@@ -4,7 +4,7 @@ import Note from "../components/Note";
 import "../styles/Home.css";
 
 function Home() {
-  const [notes, setNotes] = useState();
+  const [notes, setNotes] = useState([]);
   const [content, setContent] = useState();
   const [title, setTitle] = useState();
 
