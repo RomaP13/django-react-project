@@ -52,7 +52,7 @@ function Form({ route, method }) {
         placeholder="Password"
       />
       {loading && <LoadingIndicator />}
-      <button className="form-button" tyep="submit">
+      <button className="form-button" type="submit">
         {name}
       </button>
     </form>
